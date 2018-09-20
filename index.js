@@ -1,3 +1,18 @@
+function showCommits() {
+  const commits = JSON.parse(this.responseText);
+  const commitsList = `<ul>${commits
+    .map(
+      commit =>
+        '<li><strong>' +
+        commit.author.login +
+        '</strong> - ' +
+        commit.commit.message +
+        '</li>'
+    )
+    .join('')}</ul>`;
+  document.getElementById('commits').innerHTML = commitsList;
+}
+
 function showRepositories() {
   var repos = JSON.parse(this.responseText);
   console.log(repos);
